@@ -1,0 +1,73 @@
+# Godot 源文件（不需要部署，已打包进 index.pck）
+.godot/
+scenes/
+scripts/
+data/
+themes/
+assets/
+fonts/
+project.godot
+export_presets.cfg
+icon.svg
+icon.svg.import
+
+# Godot 导入元数据
+*.import
+
+# 1.* 是旧版导出，不需要
+1.html
+1.js
+1.pck
+1.wasm
+1.png
+1.icon.png
+1.apple-touch-icon.png
+1.audio.worklet.js
+1.*.import
+
+# 部署配置目录（不需要部署）
+edgeone/
+edgeone-deploy/
+edgeone-test/
+edgeone-test2/
+edgeone-test3/
+edgeone-test4/
+edgeone-test5/
+edgeone-test6/
+edgeone-test7/
+edgeone-test8/
+edgeone-test9/
+edgeone-test10/
+deploy-cn-fix/
+deploy-fix.bat
+deploy-cn-fix-deploy.ps1
+deploy-output-fix.json
+export/
+
+# 开发文件
+node_modules/
+server.js
+.env.example
+package.json
+package-lock.json
+
+# IDE 和元数据
+.vscode/
+.idea/
+.codebuddy/
+.workbuddy/
+.git/
+.gitignore
+
+# 文档与PPT（不需要部署）
+*.md
+AGENT.md
+README.md
+项目介绍PPT.html
+异议_PPT.html
+比赛材料.md
+腾讯云黑客松比赛分析.md
+游戏设计文档_敲定版.md
+
+# 临时文件
+.vercel/
