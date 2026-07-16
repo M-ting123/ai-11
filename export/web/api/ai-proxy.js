@@ -25,11 +25,18 @@ function readBody(req) {
 }
 
 function json(res, data, status = 200) {
+  const body = JSON.stringify(data);
+  // Vercel 代理层默认会对 serverless function 响应做 gzip/brotli 压缩。
+  // Godot Web 导出的 HTTPRequest 可能无法正确解压，导致中文乱码。
+  // Content-Encoding: identity 告知 Vercel 不要压缩此响应。
   res.writeHead(status, {
     "Content-Type": "application/json; charset=utf-8",
+    "Content-Encoding": "identity",
+    "Content-Length": Buffer.byteLength(body, "utf-8"),
+    "Cache-Control": "no-transform",
     "Access-Control-Allow-Origin": "*",
   });
-  res.end(JSON.stringify(data));
+  res.end(body);
 }
 
 function errorJson(res, code, message, status = 500) {
