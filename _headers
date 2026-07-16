@@ -9,6 +9,5 @@
 
 /index.pck
   Content-Type: application/octet-stream
-  Content-Encoding: gzip
   Cross-Origin-Resource-Policy: cross-origin
   Cache-Control: no-transform
