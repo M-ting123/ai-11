@@ -115,7 +115,9 @@ async function handleAiProxy(req, res) {
 	}
 
 	let bodyStr = "";
-	for await (const chunk of req) bodyStr += chunk;
+	const chunks = [];
+	for await (const chunk of req) chunks.push(chunk);
+	bodyStr = Buffer.concat(chunks).toString("utf-8");
 	let body;
 	try { body = JSON.parse(bodyStr); } catch {
 		res.writeHead(400, { "Content-Type": "application/json" });

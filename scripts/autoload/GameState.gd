@@ -9,6 +9,15 @@ extends Node
 # ---- 当前关卡 ----
 var current_case_id: String = ""
 
+
+func _ready() -> void:
+	# 确保中文字体在 Web 导出中正确加载
+	var font = load("res://fonts/NotoSansSC-Regular.otf")
+	if font and get_tree():
+		var theme = Theme.new()
+		theme.default_font = font
+		get_tree().root.theme = theme
+
 # ---- 证据库 ----
 # Dictionary[ev_id] -> { id, name, type, credibility, image, description, forged }
 var evidence_db: Dictionary = {}
