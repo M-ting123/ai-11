@@ -4,7 +4,11 @@
 
 /index.wasm
   Content-Type: application/wasm
+  Content-Encoding: gzip
+  Cache-Control: no-transform
 
 /index.pck
   Content-Type: application/octet-stream
+  Content-Encoding: gzip
   Cross-Origin-Resource-Policy: cross-origin
+  Cache-Control: no-transform
