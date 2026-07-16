@@ -1,4 +1,5 @@
 extends Panel
+class_name EvidenceCard
 ## EvidenceCard — 证据卡片（可复用组件）
 
 signal card_clicked(card: EvidenceCard)
