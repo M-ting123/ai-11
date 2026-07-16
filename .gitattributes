@@ -1,0 +1,40 @@
+# 自动检测文本文件，统一换行符为 LF
+* text=auto
+
+# Godot 引擎文件
+*.gd text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.godot text eol=lf
+*.cfg text eol=lf
+*.import text eol=lf
+
+# 前端/Node.js 文件
+*.js text eol=lf
+*.ts text eol=lf
+*.jsx text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.vue text eol=lf
+*.svg text eol=lf
+
+# 文档文件
+*.md text eol=lf
+*.txt text eol=lf
+
+# 二进制文件（防止 Git 错误转换导致损坏）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.mp4 binary
+*.zip binary
+*.ttf binary
+*.wasm binary
+*.pck binary
