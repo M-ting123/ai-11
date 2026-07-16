@@ -19,6 +19,8 @@ desktop.ini
 .vscode/
 .idea/
 *.code-workspace
+.codebuddy/
+.workbuddy/
 
 # Logs
 *.log
@@ -33,5 +35,43 @@ tmp/
 *.old
 *.bak
 
+# Old Godot export prefix (1.*)
+1.html
+1.js
+1.pck
+1.wasm
+1.png
+1.apple-touch-icon.png
+1.audio.worklet.js
+1.icon.png
+1.*.import
+
+# Duplicate deploy dirs
+edgeone-deploy/
+deploy-cn-fix/
+deploy-fix.bat
+deploy-cn-fix-deploy.ps1
+deploy-output-fix.json
+
+# EdgeOne test dirs
+edgeone-test/
+edgeone-test2/
+edgeone-test3/
+edgeone-test4/
+edgeone-test5/
+edgeone-test6/
+edgeone-test7/
+edgeone-test8/
+edgeone-test9/
+edgeone-test10/
+
 # CloudStudio deploy temp
 .cloudstudio/
+
+# Tencent Cloud EdgeOne
+.env
+.edgeone/*
+.tef_dist/*
+
+# Vercel local config (不排除 vercel.json / .vercelignore / api/)
+.vercel/
