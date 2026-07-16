@@ -1,0 +1,46 @@
+# Godot 源文件（不需要部署）
+.godot/
+scenes/
+scripts/
+themes/
+assets/
+fonts/
+
+# Godot 导入元数据
+*.import
+
+# 1.* 是旧版导出，不需要
+1.html
+1.js
+1.pck
+1.wasm
+1.png
+1.icon.png
+1.apple-touch-icon.png
+1.audio.worklet.js
+1.*.import
+
+# 部署配置目录（不需要部署）
+edgeone/
+edgeone-deploy/
+export/
+
+# 开发文件
+node_modules/
+server.js
+.env.example
+package-lock.json
+
+# IDE 和元数据
+.vscode/
+.idea/
+.codebuddy/
+.workbuddy/
+
+# 文档（不需要部署）
+*.md
+AGENT.md
+
+# 临时文件
+.vercel/
+export_presets.cfg
