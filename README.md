@@ -72,8 +72,4 @@ Godot 是免安装绿色版，下载解压即可用：
 | `GameState` | 游戏状态 | `GameState.add_testimony(...)`, `GameState.get_verdict()` |
 | `AIService` | AI调用 | `AIService.chat_with_witness(...)`, `AIService.analyze_evidence(...)` |
 
-## 五、下一步
 
-- [ ] 搭建7个场景骨架（main_menu → verdict）
-- [ ] 创建 EdgeOne Functions AI代理
-- [ ] 跑通 Godot → EdgeOne → DeepSeek 调用链路
