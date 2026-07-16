@@ -1,0 +1,12 @@
+res://scenes/ui/ai_assistant_panel.tscn::4763eb2d5080a3d45b446c86821d12f3::1784127674::res://.godot/exported/133200997/export-f6d5c6a57a14338d3801a109eabc65a8-ai_assistant_panel.scn
+res://scenes/ui/dialogue_box.tscn::9f78b61de8a7fa596d10f00fca97855b::1784098063::res://.godot/exported/133200997/export-d58b8e99c4892abd13103612897da9e2-dialogue_box.scn
+res://scenes/ui/evidence_card.tscn::d1ebf0a7b3c5d6f2914dc607311a4b33::1784098060::res://.godot/exported/133200997/export-263126a173b051e7b6e803f572d075a8-evidence_card.scn
+res://scenes/ui/typewriter_label.tscn::bf04e2f357791082a85880be4cec03d5::1784098065::res://.godot/exported/133200997/export-e445a5e680dd497783ccc27d70e78a77-typewriter_label.scn
+res://scenes/ai_test.tscn::6adf7343b19004a1dceff1ab8a1304c9::1784098633::res://.godot/exported/133200997/export-724c18079ac2eb9ae1b643a61b0948af-ai_test.scn
+res://scenes/case_accept.tscn::9f037951512303f4ec7f846e7e4e5cad::1784100324::res://.godot/exported/133200997/export-5cabcdb34064a1bfd63f7190b062fb70-case_accept.scn
+res://scenes/court_trial.tscn::0e52db6e08b371f01bca4f616cd85d38::1784127125::res://.godot/exported/133200997/export-251fae97738d7686f0a93825509871db-court_trial.scn
+res://scenes/evidence_board.tscn::4d719eb6ea87fe0a23a43c04253d0b0d::1784124885::res://.godot/exported/133200997/export-6aab1e55391f9dca670308acaa83bfa7-evidence_board.scn
+res://scenes/main_menu.tscn::cb49500b0b1680dbb6e7c0bb380f465d::1784129623::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
+res://scenes/story_intro.tscn::db869a79058894ca82376565150ab5f0::1784098404::res://.godot/exported/133200997/export-45a7ee409497c968685f745ff052c6d4-story_intro.scn
+res://scenes/verdict.tscn::482270eb91dc2d69aa05c03d3351f349::1784098039::res://.godot/exported/133200997/export-981fabf7b184ee66ee1280e8bcb6d3c3-verdict.scn
+res://scenes/witness_interrogation.tscn::2f0a63037930bb2f769d52f18b16cdbd::1784121087::res://.godot/exported/133200997/export-2506fcbd097acc6f0222f4500edd9f9a-witness_interrogation.scn
