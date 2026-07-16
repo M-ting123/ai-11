@@ -59,7 +59,6 @@ func _on_hint_button_pressed() -> void:
 	_hints_label.text = "正在分析案件矛盾..."
 	_suggestions_label.text = ""
 
-	hint_requested.emit()
 	AIService.analyze_evidence(testimony_list, evidence_list)
 
 
@@ -87,18 +86,19 @@ func _on_analysis_failed(error: String) -> void:
 	_hint_button.disabled = false
 	_hint_button.text = "💡 提示方向"
 
-	# 失败时给本地兜底提示
+	# 显示真实错误信息 + 本地兜底提示
+	_hints_label.text = "[color=red]AI 请求失败: " + error + "[/color]\n\n"
 	var suspects = GameState.get_suspects()
 	if suspects.is_empty():
 		if GameState.testimony_db.is_empty():
-			_hints_label.text = "AI 暂不可用。先向证人提问收集证词。"
+			_hints_label.text += "先向证人提问收集证词。"
 			_suggestions_label.text = "选择提问方向，向证人询问关键问题。"
 		else:
-			_hints_label.text = "AI 暂不可用。点击[整理]把证词变卡片。"
-			_suggestions_label.text = "连线证据确认矛盾，矛盾的连线就是疑点。"
+			_hints_label.text += "点击[整理]把证词变卡片，连线证据找矛盾。"
+			_suggestions_label.text = "矛盾的连线就是疑点。"
 	else:
-		_hints_label.text = "AI 暂不可用。已发现 %d 个疑点。" % suspects.size()
-		_suggestions_label.text = "进入法庭，对证人证词提出异议。"
+		_hints_label.text += "已发现 %d 个疑点，可进入法庭。" % suspects.size()
+		_suggestions_label.text = "对证人证词提出异议。"
 
 
 ## 更新疑点提示
