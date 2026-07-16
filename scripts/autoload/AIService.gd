@@ -42,6 +42,13 @@ func _ready() -> void:
 	_http_request.timeout = REQUEST_TIMEOUT
 	_http_request.accept_gzip = true  # Web 导出时必须显式开启，否则压缩响应会乱码
 	add_child(_http_request)
+	
+	# Web 导出：HTTPRequest 不支持相对路径，须拼接完整 URL
+	if OS.has_feature("web"):
+		var origin = JavaScriptBridge.eval("window.location.origin")
+		if origin != null and origin != "":
+			proxy_url = str(origin) + "/api/ai-proxy"
+			print("[AIService] Web proxy_url = %s" % proxy_url)
 	_http_request.request_completed.connect(_on_request_completed)
 
 
