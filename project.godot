@@ -31,6 +31,10 @@ window/size/viewport=Vector2i(1920, 1080)
 window/size/stretch_mode="canvas_items"
 window/size/stretch_aspect="keep"
 
+[gui]
+
+theme/custom="res://themes/default_theme.tres"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
