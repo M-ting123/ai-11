@@ -16,16 +16,21 @@ const API_KEY = process.env.DEEPSEEK_API_KEY || "";
 
 const MIME = {
 	".html": "text/html; charset=utf-8",
-	".js": "application/javascript",
+	".js": "application/javascript; charset=utf-8",
+	".mjs": "application/javascript; charset=utf-8",
+	".css": "text/css; charset=utf-8",
+	".json": "application/json; charset=utf-8",
+	".svg": "image/svg+xml; charset=utf-8",
+	".xml": "application/xml; charset=utf-8",
+	".txt": "text/plain; charset=utf-8",
 	".wasm": "application/wasm",
 	".wasm.gz": "application/wasm",
 	".gz": "application/octet-stream",
 	".pck": "application/octet-stream",
 	".png": "image/png",
 	".jpg": "image/jpeg",
+	".jpeg": "image/jpeg",
 	".mp3": "audio/mpeg",
-	".svg": "image/svg+xml",
-	".json": "application/json",
 	".ico": "image/x-icon",
 };
 
