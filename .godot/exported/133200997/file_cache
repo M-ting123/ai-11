@@ -6,7 +6,8 @@ res://scenes/ai_test.tscn::6adf7343b19004a1dceff1ab8a1304c9::1784098633::res://.
 res://scenes/case_accept.tscn::9f037951512303f4ec7f846e7e4e5cad::1784100324::res://.godot/exported/133200997/export-5cabcdb34064a1bfd63f7190b062fb70-case_accept.scn
 res://scenes/court_trial.tscn::0e52db6e08b371f01bca4f616cd85d38::1784127125::res://.godot/exported/133200997/export-251fae97738d7686f0a93825509871db-court_trial.scn
 res://scenes/evidence_board.tscn::4d719eb6ea87fe0a23a43c04253d0b0d::1784124885::res://.godot/exported/133200997/export-6aab1e55391f9dca670308acaa83bfa7-evidence_board.scn
-res://scenes/main_menu.tscn::cb49500b0b1680dbb6e7c0bb380f465d::1784129623::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
+res://scenes/main_menu.tscn::cb49500b0b1680dbb6e7c0bb380f465d::1784133934::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
 res://scenes/story_intro.tscn::db869a79058894ca82376565150ab5f0::1784098404::res://.godot/exported/133200997/export-45a7ee409497c968685f745ff052c6d4-story_intro.scn
 res://scenes/verdict.tscn::482270eb91dc2d69aa05c03d3351f349::1784098039::res://.godot/exported/133200997/export-981fabf7b184ee66ee1280e8bcb6d3c3-verdict.scn
 res://scenes/witness_interrogation.tscn::2f0a63037930bb2f769d52f18b16cdbd::1784121087::res://.godot/exported/133200997/export-2506fcbd097acc6f0222f4500edd9f9a-witness_interrogation.scn
+res://themes/default_theme.tres::d103b8cff4a83b0ae743ddb2cdc3d2b0::1784170636::res://.godot/exported/133200997/export-090902c623f69d1979158a68112eedf1-default_theme.res
