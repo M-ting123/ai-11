@@ -1,0 +1,10 @@
+{
+  "name": "ai-proxy",
+  "version": "1.0.0",
+  "description": "EdgeOne Functions AI代理 — 逆转AI·法庭项目",
+  "type": "module",
+  "scripts": {
+    "mock": "node mock-server.js",
+    "start": "node server.js"
+  }
+}

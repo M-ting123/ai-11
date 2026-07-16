@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>异议！ — 项目介绍</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-dark: #1a1410;
+  --bg-card: #2d231d;
+  --bg-paper: #f4ebe0;
+  --red-stamp: #c0392b;
+  --gold-gavel: #d4a055;
+  --text-light: #e8dcc8;
+  --text-muted: #a09080;
+  --text-dark: #2c1810;
+  --border-line: #4a3a2e;
+}
+
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  background: var(--bg-dark);
+  overflow: hidden;
+  color: var(--text-light);
+}
+
+.slide {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 100px;
+}
+
+.slide.active { display: flex; }
+
+/* Slide 1: Title */
+.slide-title {
+  background: var(--bg-dark);
+  position: relative;
+}
+.slide-title::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(192,57,43,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.title-stamp {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 900;
+  font-size: 180px;
+  color: var(--red-stamp);
+  letter-spacing: -8px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+.title-stamp::after {
+  content: '';
+  position: absolute;
+  top: 10px; left: -10px; right: -10px; bottom: -10px;
+  border: 6px solid var(--red-stamp);
+  border-radius: 12px;
+  opacity: 0.3;
+  transform: rotate(-2deg);
+  pointer-events: none;
+}
+.subtitle {
+  font-family: "Noto Serif SC", serif;
+  font-size: 28px;
+  color: var(--gold-gavel);
+  margin-top: 30px;
+  letter-spacing: 4px;
+}
+.tagline {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-top: 50px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 2px;
+}
+.event-info {
+  position: absolute;
+  bottom: 50px;
+  left: 100px;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Slide 2+: Content */
+h2 {
+  font-family: "Noto Serif SC", serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--gold-gavel);
+  margin-bottom: 40px;
+  align-self: flex-start;
+  border-left: 6px solid var(--red-stamp);
+  padding-left: 20px;
+}
+h3 {
+  font-family: "Noto Serif SC", serif;
+  font-size: 24px;
+  color: var(--red-stamp);
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+p { font-size: 20px; line-height: 1.8; margin-bottom: 12px; color: var(--text-light); }
+ul { list-style: none; }
+li {
+  font-size: 20px;
+  line-height: 2;
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-light);
+}
+li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--red-stamp);
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 18px;
+  width: 100%;
+  max-width: 900px;
+  margin: 16px 0;
+}
+th {
+  background: var(--bg-card);
+  color: var(--gold-gavel);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 700;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 3px solid var(--red-stamp);
+}
+td {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-line);
+  color: var(--text-light);
+}
+
+.highlight { color: var(--red-stamp); font-weight: 700; }
+.gold { color: var(--gold-gavel); font-weight: 700; }
+
+.box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-line);
+  border-left: 4px solid var(--red-stamp);
+  border-radius: 4px;
+  padding: 28px 36px;
+  margin: 16px 0;
+  max-width: 900px;
+  width: 100%;
+}
+
+.flow-box {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  line-height: 2.4;
+  color: var(--gold-gavel);
+  background: var(--bg-card);
+  padding: 30px 40px;
+  border-radius: 4px;
+  border: 1px solid var(--border-line);
+  max-width: 800px;
+  width: 100%;
+}
+.flow-arrow { color: var(--red-stamp); }
+
+.stamp-deco {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-family: "Noto Serif SC", serif;
+  font-size: 16px;
+  color: var(--red-stamp);
+  border: 3px solid var(--red-stamp);
+  padding: 6px 16px;
+  border-radius: 4px;
+  transform: rotate(8deg);
+  opacity: 0.6;
+  letter-spacing: 2px;
+}
+
+.nav {
+  position: fixed;
+  bottom: 24px;
+  right: 40px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+  z-index: 100;
+}
+
+.hint {
+  position: fixed;
+  bottom: 24px;
+  left: 40px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: "JetBrains Mono", monospace;
+  z-index: 100;
+}
+
+/* Case evidence cards */
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  max-width: 900px;
+  width: 100%;
+  margin: 16px 0;
+}
+.evidence-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-line);
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 16px;
+}
+.evidence-card .ev-name {
+  color: var(--gold-gavel);
+  font-weight: 700;
+  font-family: "Noto Serif SC", serif;
+  margin-bottom: 8px;
+}
+.evidence-card .ev-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* AI badge */
+.ai-badge {
+  display: inline-block;
+  background: var(--red-stamp);
+  color: var(--text-light);
+  font-size: 12px;
+  font-family: "JetBrains Mono", monospace;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<!-- ============ Slide 1: Title ============ -->
+<div class="slide slide-title active">
+  <div class="stamp-deco">案件编号 No.001</div>
+  <div class="title-stamp">异议！</div>
+  <div class="subtitle">AI 驱动法庭博弈 AVG</div>
+  <div class="tagline">> 传唤是听他说话，开庭是用他的话打他的脸</div>
+  <div class="event-info">腾讯云黑客松 · 游戏开发挑战赛 2026 | 叙事剧情游戏赛道</div>
+</div>
+
+<!-- ============ Slide 2: Core Concept ============ -->
+<div class="slide">
+  <div class="stamp-deco">核心概念</div>
+  <h2>你有一个别人没有的武器</h2>
+  <div class="box">
+    <p>你是一个刚拿到律师证的新手律师，意外获得了 <span class="highlight">AI 助手系统</span>——别人没有，只有你有。</p>
+    <p>为被冤枉的人辩护，在法庭上揭穿伪造证据与不成立的推理。</p>
+  </div>
+  <h3>三个核心设定</h3>
+  <ul>
+    <li><span class="highlight">金手指</span>：只有主角有 AI 助手，这是"作弊"的爽感</li>
+    <li><span class="highlight">律师身份</span>：审查证据而非采集，情报来自警方卷宗</li>
+    <li><span class="highlight">法庭是舞台</span>：不涉及真实法律，是博弈不是模拟器</li>
+  </ul>
+</div>
+
+<!-- ============ Slide 3: Flow ============ -->
+<div class="slide">
+  <div class="stamp-deco">玩法流程</div>
+  <h2>从受理到判决</h2>
+  <div class="flow-box">
+受理案件 <span class="flow-arrow">→</span> 文件解封呈现<br>
+<span class="flow-arrow">↓</span><br>
+连线整理 <span class="flow-arrow">→</span> 梳理卷宗物证矛盾点<br>
+<span class="flow-arrow">↓</span><br>
+<span class="gold">传唤证人询问</span> <span class="flow-arrow">→</span> 主玩法 · AI 对话 · 搜集疑点<br>
+<span class="flow-arrow">↓</span><br>
+疑点整理 <span class="flow-arrow">→</span> 疑点做卡片 · 连线 · 摆位<br>
+<span class="flow-arrow">↓</span><br>
+<span class="gold">开庭</span> <span class="flow-arrow">→</span> 威慑 · 异议 · 出示证据<br>
+<span class="flow-arrow">↓</span><br>
+判决 <span class="flow-arrow">→</span> 完美胜诉 / 胜诉 / 部分胜诉 / 败诉
+  </div>
+</div>
+
+<!-- ============ Slide 4: Interrogation ============ -->
+<div class="slide">
+  <div class="stamp-deco">主玩法</div>
+  <h2>传唤询问 — 听他说话</h2>
+  <table>
+    <tr><th>操作</th><th>做什么</th><th>效果</th></tr>
+    <tr><td><span class="gold">选话题提问</span></td><td>选提问方向（不自由输入）</td><td>证人回答，可能露出疑点</td></tr>
+    <tr><td><span class="gold">点击疑点句</span></td><td>点击证词中可疑的句子</td><td>记录到右侧"已记录疑点"</td></tr>
+    <tr><td><span class="gold">出示物证施压</span></td><td>拿已有物证逼证人回答</td><td>证人可能改口或透露更多</td></tr>
+  </table>
+  <h3>右侧 AI 助手面板</h3>
+  <ul>
+    <li>上方：疑点提示（"这句话可能有问题"，<span class="highlight">不给答案</span>）</li>
+    <li>下方：已记录疑点列表（累积显示）</li>
+    <li>审讯回合限制：每个证人 5 轮</li>
+  </ul>
+  <p style="margin-top:20px; color:var(--text-muted); font-size:16px;">不让玩家自由输入：避免在对话框里把案子聊穿了，跳过法庭</p>
+</div>
+
+<!-- ============ Slide 5: Court ============ -->
+<div class="slide">
+  <div class="stamp-deco">法庭玩法</div>
+  <h2>开庭 — 用他的话打他的脸</h2>
+  <table>
+    <tr><th>阶段</th><th>内容</th><th>操作</th></tr>
+    <tr><td><span class="gold">1. 证人作证</span></td><td>揭穿证词谎言</td><td>点击可疑句 → 异议 → 出示证据</td></tr>
+    <tr><td><span class="gold">2. 律师交锋</span></td><td>反驳对方推理链</td><td>找断裂点，点击反驳</td></tr>
+    <tr><td><span class="gold">3. 情绪崩溃</span></td><td>证人被逼崩溃</td><td>AI 演绎情绪变化，改口承认</td></tr>
+    <tr><td><span class="gold">4. 最终质询</span></td><td>串联证据揭真相</td><td>一击揭真相，高潮收尾</td></tr>
+  </table>
+  <h3>胜负判定</h3>
+  <ul>
+    <li>全部揭穿 = <span class="highlight">完美胜诉</span>　　≥2/3 = 胜诉</li>
+    <li>1/3 = 部分胜诉　　0 = 败诉</li>
+  </ul>
+  <p style="margin-top:16px; color:var(--text-muted); font-size:16px;">异议失败只浪费机会，不扣分不崩盘。鼓励探索，不惩罚尝试。</p>
+</div>
+
+<!-- ============ Slide 6: AI Usage ============ -->
+<div class="slide">
+  <div class="stamp-deco">AI 使用</div>
+  <h2>六个环节深度使用 AI</h2>
+  <div class="box">
+    <p><span class="ai-badge">01</span><span class="gold">剧情与 NPC</span>：DeepSeek 生成案件剧本、NPC 人设、证词与谎言逻辑，输出 JSON 实现剧情代码解耦。</p>
+    <p><span class="ai-badge">02</span><span class="gold">AI 证人对话（核心）</span>：DeepSeek 构建 Persona 系统，NPC 有预设人设、知识边界与谎言。AI 根据角色性格生成回应，动态演绎情绪变化（冷静→紧张→崩溃），实现可揭穿的智能证人。</p>
+    <p><span class="ai-badge">03</span><span class="gold">AI 助手分析</span>：右侧面板实时分析证词与证据匹配，标记疑点但不给答案。</p>
+    <p><span class="ai-badge">04</span><span class="gold">美术</span>：GPT-4o 生成 Alan Becker 风格火柴人立绘与场景。</p>
+    <p><span class="ai-badge">05</span><span class="gold">代码</span>：CodeBuddy 生成 GDScript，涵盖 UI、拖拽连线、AI 调用。</p>
+    <p><span class="ai-badge">06</span><span class="gold">API 安全</span>：EdgeOne Functions 做代理，密钥不进前端。</p>
+  </div>
+</div>
+
+<!-- ============ Slide 7: Tech ============ -->
+<div class="slide">
+  <div class="stamp-deco">技术架构</div>
+  <h2>技术栈</h2>
+  <table>
+    <tr><th>层</th><th>技术</th><th>说明</th></tr>
+    <tr><td>引擎</td><td><span class="gold">Godot 4.x</span></td><td>导出 Web，浏览器可访问</td></tr>
+    <tr><td>语言</td><td>GDScript</td><td>Godot 原生脚本</td></tr>
+    <tr><td>AI 对话</td><td><span class="gold">DeepSeek API</span></td><td>证人 Persona + AI 助手分析</td></tr>
+    <tr><td>API 代理</td><td>EdgeOne Functions</td><td>密钥不进前端</td></tr>
+    <tr><td>美术</td><td>GPT-4o 生图</td><td>Alan Becker 风格火柴人</td></tr>
+    <tr><td>代码辅助</td><td>CodeBuddy</td><td>GDScript 生成</td></tr>
+    <tr><td>部署</td><td>EdgeOne Pages</td><td>在线可访问</td></tr>
+  </table>
+  <h3>项目结构</h3>
+  <ul>
+    <li>7 个场景 · 12 个脚本 · 3 个 Autoload 单例</li>
+    <li>案件数据 JSON 化（剧情与代码解耦）</li>
+    <li>AI 调用：Godot → EdgeOne → DeepSeek</li>
+  </ul>
+</div>
+
+<!-- ============ Slide 8: Visual ============ -->
+<div class="slide">
+  <div class="stamp-deco">视觉风格</div>
+  <h2>Alan Becker 风格火柴人</h2>
+  <ul>
+    <li><span class="gold">人物</span>：火柴人/简笔画，黑色线条，参考 Alan Becker 风格</li>
+    <li><span class="gold">表情</span>：肢体语言 + 简单符号（惊讶=！，心虚=滴汗）</li>
+    <li><span class="gold">法院场景</span>：棕色主题简笔画（柱子/天平/法槌符号）</li>
+    <li><span class="gold">档案袋</span>：棕色档案袋风格，连线场景背景</li>
+    <li><span class="gold">音效</span>：法槌声、"反对！"、胜利/失败、点击声</li>
+    <li><span class="gold">BGM</span>：紧张法庭氛围，钢琴 + 电子氛围，70bpm 循环</li>
+  </ul>
+  <div class="box" style="margin-top:24px;">
+    <p style="font-size:16px; color:var(--text-muted);">AI 生图总量：6-9 张（法院背景 + 办公室 + NPC 立绘 + 证据小图）</p>
+  </div>
+</div>
+
+<!-- ============ Slide 9: Case ============ -->
+<div class="slide">
+  <div class="stamp-deco">关卡 1</div>
+  <h2>住宅盗窃遇害案</h2>
+  <div class="box">
+    <p><span class="gold">案情</span>：被告李明潜入住宅盗窃，恰遇命案现场，被栽赃为凶手</p>
+    <p><span class="gold">证人</span>：王保安（当晚值班，3 处谎言）</p>
+    <p><span class="gold">真相</span>：凶手是保安自己，被告被栽赃</p>
+  </div>
+  <h3>五份物证</h3>
+  <div class="evidence-grid">
+    <div class="evidence-card"><div class="ev-name">小区监控</div><div class="ev-desc">显示保安21:30离开岗亭</div></div>
+    <div class="evidence-card"><div class="ev-name">法医报告</div><div class="ev-desc">死亡时间21:30±15分钟</div></div>
+    <div class="evidence-card"><div class="ev-name">凶器烟灰缸</div><div class="ev-desc">无被告指纹</div></div>
+    <div class="evidence-card"><div class="ev-name">被告手套</div><div class="ev-desc">有玻璃碎屑，无血迹</div></div>
+    <div class="evidence-card"><div class="ev-name">值班记录</div><div class="ev-desc">21:30签到于3号楼</div></div>
+  </div>
+  <h3>三处矛盾（揭穿 ≥2 处胜诉）</h3>
+  <ul>
+    <li><span class="highlight">时间矛盾</span>：保安称21:30在岗亭 ← 监控显示已离开</li>
+    <li><span class="highlight">位置矛盾</span>：保安称没去过3号楼 ← 值班记录显示签到3号楼</li>
+    <li><span class="highlight">凶器矛盾</span>：保安称看到被告持凶器 ← 凶器无指纹、手套无血</li>
+  </ul>
+</div>
+
+<!-- ============ Slide 10: Status ============ -->
+<div class="slide">
+  <div class="stamp-deco">项目状态</div>
+  <h2>当前进展</h2>
+  <h3>已完成</h3>
+  <ul>
+    <li>Godot 项目骨架（7 场景 + 12 脚本）</li>
+    <li>案件数据 JSON（case_01.json，完整剧情+证据+矛盾+法庭台词+情绪反应）</li>
+    <li>AI 调用架构（EdgeOne 代理 → DeepSeek）</li>
+    <li>BGM 素材（The_Last_Exhibit.mp3）</li>
+    <li>系统类：CaseManager / WitnessSystem / CourtSystem</li>
+    <li>UI 组件：AIAssistantPanel / DialogueBox / TypewriterLabel / EvidenceCard</li>
+  </ul>
+  <h3>待完成</h3>
+  <ul>
+    <li>关卡 2 主线案（朋友被冤枉杀人）</li>
+    <li>美术素材（火柴人立绘 / 场景图）</li>
+    <li>法庭 4 阶段完整实现</li>
+    <li>疑点整理界面</li>
+  </ul>
+</div>
+
+<!-- ============ Slide 11: End ============ -->
+<div class="slide slide-title">
+  <div class="title-stamp" style="font-size:120px;">异议！</div>
+  <div class="subtitle">谢谢观看</div>
+  <div class="tagline">> 传唤是听他说话，开庭是用他的话打他的脸</div>
+  <div class="event-info">腾讯云黑客松 · 游戏开发挑战赛 2026 | Godot 4.x · DeepSeek · CodeBuddy</div>
+</div>
+
+<div class="nav">Page <span id="page">1</span> / 11</div>
+<div class="hint">← → 翻页</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+function show(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[n].classList.add('active');
+  document.getElementById('page').textContent = n + 1;
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+    current = (current + 1) % total; show(current);
+  } else if (e.key === 'ArrowLeft') {
+    current = (current - 1 + total) % total; show(current);
+  }
+});
+</script>
+</body>
+</html>

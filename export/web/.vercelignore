@@ -1,0 +1,13 @@
+# Godot 导入元数据（部署时不需要）
+*.import
+
+# 本地开发
+node_modules/
+server.js
+.env.example
+
+# Vercel CLI 缓存
+.vercel/
+
+# 临时文件
+*.br

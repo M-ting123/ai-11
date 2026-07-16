@@ -1,0 +1,14 @@
+{
+  "name": "reverse-ai-court",
+  "version": "0.7.3",
+  "description": "逆转AI·法庭 — Godot Web 游戏 + Vercel Serverless AI 代理",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "keywords": ["godot", "web-game", "ai", "deepseek"],
+  "license": "private"
+}
