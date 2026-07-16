@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3 uid="uid://h3flk7zb0r5i6"]
+
+[ext_resource type="Script" path="res://scripts/scenes/court_trial.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/ai_assistant_panel.tscn" id="2"]
+
+[node name="CourtTrial" type="Control"]
+script = ExtResource("1")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.06, 0.1, 1)
+
+[node name="CourtSymbol" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 50.0
+text = "⚖"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.78, 0.62, 0.42, 0.6)
+
+[node name="PhaseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 55.0
+offset_right = -20.0
+offset_bottom = 88.0
+text = "法庭对决"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.91, 0.27, 0.38, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 95.0
+offset_right = -20.0
+offset_bottom = -75.0
+split_offset = 1000
+
+[node name="MainPanel" type="Panel" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="HSplitContainer/MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = -18.0
+offset_bottom = -14.0
+theme_override_constants/separation = 10
+
+[node name="SpeakerLabel" type="Label" parent="HSplitContainer/MainPanel/MainVBox"]
+layout_mode = 2
+text = "证人 · 王保安"
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.84, 0, 1)
+
+[node name="ContentText" type="RichTextLabel" parent="HSplitContainer/MainPanel/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 19
+theme_override_colors/default_color = Color(0.94, 0.92, 0.86, 1)
+bbcode_enabled = true
+scroll_following = true
+text = ""
+
+[node name="AIAssistantPanel" parent="HSplitContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -12.0
+alignment = 1
+theme_override_constants/separation = 40
+
+[node name="ObjectionBtn" type="Button" parent="BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 48)
+text = "异议"
+theme_override_font_sizes/font_size = 19
+theme_override_colors/font_color = Color(0.93, 0.81, 0.67, 1)
+
+[node name="NextBtn" type="Button" parent="BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 48)
+text = "继续"
+theme_override_font_sizes/font_size = 19
+theme_override_colors/font_color = Color(0.93, 0.81, 0.67, 1)

@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="逆转AI·法庭"
+config/description="AI驱动的法庭博弈AVG — 腾讯云黑客松2026参赛作品"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://scripts/autoload/SceneManager.gd"
+GameState="*res://scripts/autoload/GameState.gd"
+AIService="*res://scripts/autoload/AIService.gd"
+BGMManager="*res://scripts/autoload/BGMManager.gd"
+
+[display]
+
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/size/viewport=Vector2i(1920, 1080)
+window/size/stretch_mode="canvas_items"
+window/size/stretch_aspect="keep"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
